@@ -1,0 +1,11 @@
+		String title =blogs.getBlogTitle();
+			String fileName = blogs.getBlogImage();
+			model.addAttribute("blogTitle",title);
+			try {
+				
+				String blogtext = new String(Files.readAllBytes(Paths.get("./src/main/resources/static/blog-text/"+title+"-BY-"+userId+".txt")));
+				model.addAttribute("newblog",blogtext);
+				
+			}catch (IOException e) {
+				System.out.println(e);
+			}
